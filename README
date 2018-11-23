@@ -1,0 +1,15 @@
+Routes folder contains the routing table of different backbone routers. Here the name of the file indicates the AS ID of the backbone router. The routes are produced from the actual RIB snapshot of http://www.routeviews.org/routeviews/ (ftp://archive.routeviews.org/route-views.chicago/bgpdata/2018.11/RIBS/rib.20181101.0000.bz2 to be exact). Each RIB snapshots however contains routes from multiple peers (ISPs). Moreover the snapshots are in MRT format (not human headable). We extract the actual routing table from the RIB snopshot as following:
+
+1. We use BGPdump (libbgpdump) to convert the MRT file into a human readable text file. BGPdump has several output mode. Here we use output mode -m.
+2. Then we use parse-bgpdump.sh to convert the bgpdump output file into routes-*. parse-bgpdump.sh internally uses parse-bgpdump.py which performs the actual conversion.
+
+Note that here we replace the actual next-hop with veth0-veth31. We use following scripts to add/delete the routes to Linux.
+
+addroutes.sh      --- Add routes to Linux
+delroutes.sh      --- Delete routes from Linux
+
+These files are internally used by addroutes.sh and delroutes.sh:
+ 
+create-veths.py   --- Creates 32 veths on the machine
+addroutes.py      --- 
+delroutes.py      --- 
