@@ -11,7 +11,7 @@ ck32_count = 0
 saill = 0.0
 sailbm = 0.0
 
-with open("Routes/fib7") as f:
+with open("Routes/fib6") as f:
     for line in f:
         # Do something with 'line'
 	arr = line.replace("\r\n", "").split("\t")
