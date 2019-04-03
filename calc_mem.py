@@ -19,10 +19,10 @@ with open("Routes/fib1") as f:
           if ip not in ip_arr_24 :
 	    ck24_count += 1
 	    ip_arr_24[ip] = True	                  
-            print "ck24_count=", ck24_count
 	elif  int(prefix[1]) > 24 :
           ip = ip2int(prefix[0]) >> 8
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True	                  
-            print "ck32_count=", ck32_count
+    print "ck24_count=", ck24_count
+    print "ck32_count=", ck32_count
