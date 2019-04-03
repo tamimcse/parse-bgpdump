@@ -8,8 +8,10 @@ ip_arr_24 = {}
 ip_arr_32 = {}
 ck24_count = 0
 ck32_count = 0
+saill = 0.0
+sailbm = 0.0
 
-with open("Routes/fib1") as f:
+with open("Routes/fib7") as f:
     for line in f:
         # Do something with 'line'
 	arr = line.replace("\r\n", "").split("\t")
@@ -26,3 +28,13 @@ with open("Routes/fib1") as f:
 	    ip_arr_32[ip] = True	                  
     print "ck24_count=", ck24_count
     print "ck32_count=", ck32_count
+
+    if ck32_count > 0:
+    	saill = (64 + 128 + ((ck24_count * 256)/1024) + ((ck24_count * 4 * 256)/1024) + ((ck32_count * 256)/1024))/1024.0
+    else:
+    	saill = (64 + 128 + ((ck24_count * 256)/1024))/1024.0
+
+    sailbm = (64 + 128 + ((ck24_count * 256)/1024) + ((ck32_count * 68)/1024) + ((ck32_count * 256)/1024))/1024.0
+
+    print "sail-l=", saill
+    print "sail-bm=", sailbm
