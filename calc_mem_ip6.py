@@ -17,10 +17,13 @@ ip_arr_64 = {}
 ck32_count = 0
 ck48_count = 0
 ck64_count = 0
+ck120_count = 0
 saill = 0.0
 sailbm = 0.0
 
-with open("ipv6-fibs/routes-293") as f:
+CHUNK = 65536
+
+with open("ipv6-fibs/routes-19016") as f:
     for line in f:
         # Do something with 'line'
 	arr = line.replace("\r\n", "").split("\t")
@@ -41,17 +44,10 @@ with open("ipv6-fibs/routes-293") as f:
           ip = ip6_to_integer(prefix[0]) >> 16
           if ip not in ip_arr_64 :
 	    ck64_count += 1
-	    ip_arr_64[ip] = True	                  
+	    ip_arr_64[ip] = True
+	elif  int(prefix[1]) > 64 :
+	    ck120_count += 1
     print "ck32_count=", ck32_count
     print "ck48_count=", ck48_count
     print "ck64_count=", ck64_count
-
-    if ck48_count > 0:
-    	saill = (64 + 128 + ((ck32_count * 256)/1024) + ((ck32_count * 4 * 256)/1024) + ((ck48_count * 256)/1024))/1024.0
-    else:
-    	saill = (64 + 128 + ((ck32_count * 256)/1024))/1024.0
-
-    sailbm = (64 + 128 + ((ck32_count * 256)/1024) + ((ck48_count * 68)/1024) + ((ck48_count * 256)/1024))/1024.0
-
-    print "sail-l=", saill
-    print "sail-bm=", sailbm
+    print "ck120_count=", ck120_count
