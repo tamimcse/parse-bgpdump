@@ -34,7 +34,6 @@ with open("ipv6-fibs/routes-53828") as f:
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True	                  
-	    print prefix
 	elif  int(prefix[1]) >= 33 and int(prefix[1]) <= 48 :
           ip = ip6_to_integer(prefix[0]) >> 32
           if ip not in ip_arr_48 :
