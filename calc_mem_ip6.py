@@ -23,7 +23,7 @@ sailbm = 0.0
 
 CHUNK = 65536
 
-with open("ipv6-fibs/routes-19016") as f:
+with open("ipv6-fibs/routes-53828") as f:
     for line in f:
         # Do something with 'line'
 	arr = line.replace("\r\n", "").split("\t")
@@ -40,7 +40,7 @@ with open("ipv6-fibs/routes-19016") as f:
           if ip not in ip_arr_48 :
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
-	elif  int(prefix[1]) > 48 :
+	elif  int(prefix[1]) > 48 and int(prefix[1]) <= 64 :
           ip = ip6_to_integer(prefix[0]) >> 16
           if ip not in ip_arr_64 :
 	    ck64_count += 1
