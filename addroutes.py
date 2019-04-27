@@ -1,6 +1,6 @@
 from subprocess import call
 
-with open("Routes/fib1") as f:
+with open("ipv6-fibs/routes-19016") as f:
     for line in f:
         # Do something with 'line'
 	arr = line.replace("\r\n", "").split("\t")
