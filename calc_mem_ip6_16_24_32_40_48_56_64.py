@@ -29,12 +29,13 @@ sailbm = 0.0
 
 CHUNK = 65536
 
-with open("ipv6-fibs/routes-53828") as f:
+with open("ipv6-fibs/routes-293") as f:
     for line in f:
         # Do something with 'line'
 	arr = line.replace("\r\n", "").split("\t")
 	prefix = arr[0].split("/")
-#	print prefix
+	print prefix
+	print ip6_to_integer(prefix[0]) >> 64
 	if int(prefix[1]) > 16 and int(prefix[1]) <= 24 :
           ip = ip6_to_integer(prefix[0]) >> (48 + 64)
           if ip not in ip_arr_24 :
