@@ -40,11 +40,23 @@ with open("ipv6-fibs/routes-53828") as f:
           if ip not in ip_arr_48 :
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
+          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          if ip not in ip_arr_32 :
+	    ck32_count += 1
+	    ip_arr_32[ip] = True
 	elif  int(prefix[1]) > 48 and int(prefix[1]) <= 64 :
           ip = ip6_to_integer(prefix[0]) >> (16 + 64)
           if ip not in ip_arr_64 :
 	    ck64_count += 1
 	    ip_arr_64[ip] = True
+          ip = ip6_to_integer(prefix[0]) >> (32 + 64)
+          if ip not in ip_arr_48 :
+	    ck48_count += 1
+	    ip_arr_48[ip] = True
+          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          if ip not in ip_arr_32 :
+	    ck32_count += 1
+	    ip_arr_32[ip] = True
 	elif  int(prefix[1]) > 64 :
 	    ck120_count += 1
 
