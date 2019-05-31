@@ -35,56 +35,58 @@ with open(filename) as f:
 	prefix = arr[0].split("/")
 #	print prefix
 #	print ip6_to_integer(prefix[0]) >> 64
+#       Extract 64-bit from the 128-bit prefix
+	prefix64 = ip6_to_integer(prefix[0]) >> 64
 	if int(prefix[1]) > 16 and int(prefix[1]) <= 32 :
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True
 
 	elif int(prefix[1]) > 32 and int(prefix[1]) <= 40 :
-          ip = ip6_to_integer(prefix[0]) >> (32 + 64)
+          ip = prefix64 >> 32
           if ip not in ip_arr_40 :
 	    ck40_count += 1
 	    ip_arr_40[ip] = True
 
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True
 
 	elif int(prefix[1]) > 40 and int(prefix[1]) <= 48 :
-          ip = ip6_to_integer(prefix[0]) >> (24 + 64)
+          ip = prefix64 >> 24
           if ip not in ip_arr_48 :
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
 
-          ip = ip6_to_integer(prefix[0]) >> (32 + 64)
+          ip = prefix64 >> 32
           if ip not in ip_arr_40 :
 	    ck40_count += 1
 	    ip_arr_40[ip] = True
 
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True
 
 	elif  int(prefix[1]) > 48 and int(prefix[1]) <= 64 :
-          ip = ip6_to_integer(prefix[0]) >> (16 + 64)
+          ip = prefix64 >> 16
           if ip not in ip_arr_64 :
 	    ck64_count += 1
 	    ip_arr_64[ip] = True
 
-          ip = ip6_to_integer(prefix[0]) >> (24 + 64)
+          ip = prefix64 >> 24
           if ip not in ip_arr_48 :
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
 
-          ip = ip6_to_integer(prefix[0]) >> (32 + 64)
+          ip = prefix64 >> 32
           if ip not in ip_arr_40 :
 	    ck40_count += 1
 	    ip_arr_40[ip] = True
 
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True
@@ -120,93 +122,95 @@ with open(filename) as f:
     for line in f:
 	arr = line.replace("\r\n", "").split("\t")
 	prefix = arr[0].split("/")
+#       Extract 64-bit from the 128-bit prefix
+	prefix64 = ip6_to_integer(prefix[0]) >> 64
 	if int(prefix[1]) > 16 and int(prefix[1]) <= 24 :
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_24 :
 	    ck24_count += 1
 	    ip_arr_24[ip] = True
 	elif int(prefix[1]) > 24 and int(prefix[1]) <= 32 :
-          ip = ip6_to_integer(prefix[0]) >> (40 + 64)
+          ip = prefix64 >> 40
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_24 :
 	    ck24_count += 1
 	    ip_arr_24[ip] = True
 	elif int(prefix[1]) > 32 and int(prefix[1]) <= 40 :
-          ip = ip6_to_integer(prefix[0]) >> (32 + 64)
+          ip = prefix64 >> 32
           if ip not in ip_arr_40 :
 	    ck40_count += 1
 	    ip_arr_40[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (40 + 64)
+          ip = prefix64 >> 40
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_24 :
 	    ck24_count += 1
 	    ip_arr_24[ip] = True
 	elif int(prefix[1]) > 40 and int(prefix[1]) <= 48 :
-          ip = ip6_to_integer(prefix[0]) >> (24 + 64)
+          ip = prefix64 >> 24
           if ip not in ip_arr_48 :
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (32 + 64)
+          ip = prefix64 >> 32
           if ip not in ip_arr_40 :
 	    ck40_count += 1
 	    ip_arr_40[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (40 + 64)
+          ip = prefix64 >> 40
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_24 :
 	    ck24_count += 1
 	    ip_arr_24[ip] = True
 	elif  int(prefix[1]) > 48 and int(prefix[1]) <= 56 :
-          ip = ip6_to_integer(prefix[0]) >> (16 + 64)
+          ip = prefix64 >> 16
           if ip not in ip_arr_56 :
 	    ck56_count += 1
 	    ip_arr_56[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (24 + 64)
+          ip = prefix64 >> 24
           if ip not in ip_arr_48 :
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (32 + 64)
+          ip = prefix64 >> 32
           if ip not in ip_arr_40 :
 	    ck40_count += 1
 	    ip_arr_40[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (40 + 64)
+          ip = prefix64 >> 40
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_24 :
 	    ck24_count += 1
 	    ip_arr_24[ip] = True
 	elif  int(prefix[1]) > 56 and int(prefix[1]) <= 64 :
-          ip = ip6_to_integer(prefix[0]) >> (8 + 64)
+          ip = prefix64 >> 8
           if ip not in ip_arr_64 :
 	    ck64_count += 1
 	    ip_arr_64[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (16 + 64)
+          ip = prefix64 >> 16
           if ip not in ip_arr_56 :
 	    ck56_count += 1
 	    ip_arr_56[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (24 + 64)
+          ip = prefix64 >> 24
           if ip not in ip_arr_48 :
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (32 + 64)
+          ip = prefix64 >> 32
           if ip not in ip_arr_40 :
 	    ck40_count += 1
 	    ip_arr_40[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (40 + 64)
+          ip = prefix64 >> 40
           if ip not in ip_arr_32 :
 	    ck32_count += 1
 	    ip_arr_32[ip] = True
-          ip = ip6_to_integer(prefix[0]) >> (48 + 64)
+          ip = prefix64 >> 48
           if ip not in ip_arr_24 :
 	    ck24_count += 1
 	    ip_arr_24[ip] = True
