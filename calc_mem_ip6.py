@@ -227,3 +227,146 @@ with open(filename) as f:
 
     sail = (65536 * 3 + (ck24_count + ck32_count + ck40_count + ck48_count + ck56_count + ck64_count) * 256 + (ck24_count + ck32_count + ck40_count + ck48_count + ck56_count) * 256 * 2)/(1024*1024)
     print "SAIL-16-24-32-40-48-56-64 =", sail, "MB"
+
+################ Splitting by 6 bit ###############################
+
+ip_arr_22 = {}
+ip_arr_28 = {}
+ip_arr_34 = {}
+ip_arr_40 = {}
+ip_arr_46 = {}
+ip_arr_52 = {}
+ip_arr_58 = {}
+ip_arr_64 = {}
+ck22_count = 0
+ck28_count = 0
+ck34_count = 0
+ck40_count = 0
+ck46_count = 0
+ck52_count = 0
+ck58_count = 0
+ck64_count = 0
+
+ip_arr_24 = {}
+ip_arr_32 = {}
+ip_arr_40 = {}
+ip_arr_48 = {}
+ip_arr_56 = {}
+ip_arr_64 = {}
+ck24_count = 0
+ck32_count = 0
+ck40_count = 0
+ck48_count = 0
+ck56_count = 0
+ck64_count = 0
+poptrie = 0
+
+with open(filename) as f:
+    for line in f:
+	arr = line.replace("\r\n", "").split("\t")
+	prefix = arr[0].split("/")
+#       Extract 64-bit from the 128-bit prefix
+	prefix64 = ip6_to_integer(prefix[0]) >> 64
+	if int(prefix[1]) > 16 and int(prefix[1]) <= 22 :
+          ip = prefix64 >> 48
+          if ip not in ip_arr_22 :
+	    ck22_count += 1
+	    ip_arr_22[ip] = True
+	elif int(prefix[1]) > 22 and int(prefix[1]) <= 28 :
+          ip = prefix64 >> 42
+          if ip not in ip_arr_28 :
+	    ck28_count += 1
+	    ip_arr_28[ip] = True
+          ip = prefix64 >> 48
+          if ip not in ip_arr_22 :
+	    ck22_count += 1
+	    ip_arr_22[ip] = True
+	elif int(prefix[1]) > 28 and int(prefix[1]) <= 34 :
+          ip = prefix64 >> 36
+          if ip not in ip_arr_34 :
+	    ck34_count += 1
+	    ip_arr_34[ip] = True
+          ip = prefix64 >> 42
+          if ip not in ip_arr_28 :
+	    ck28_count += 1
+	    ip_arr_28[ip] = True
+          ip = prefix64 >> 48
+          if ip not in ip_arr_22 :
+	    ck22_count += 1
+	    ip_arr_22[ip] = True
+	elif int(prefix[1]) > 34 and int(prefix[1]) <= 40 :
+          ip = prefix64 >> 30
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
+          ip = prefix64 >> 36
+          if ip not in ip_arr_34 :
+	    ck34_count += 1
+	    ip_arr_34[ip] = True
+          ip = prefix64 >> 42
+          if ip not in ip_arr_28 :
+	    ck28_count += 1
+	    ip_arr_28[ip] = True
+          ip = prefix64 >> 48
+          if ip not in ip_arr_22 :
+	    ck22_count += 1
+	    ip_arr_22[ip] = True
+	elif  int(prefix[1]) > 40 and int(prefix[1]) <= 46 :
+          ip = prefix64 >> 24
+          if ip not in ip_arr_46 :
+	    ck46_count += 1
+	    ip_arr_46[ip] = True
+          ip = prefix64 >> 30
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
+          ip = prefix64 >> 36
+          if ip not in ip_arr_34 :
+	    ck34_count += 1
+	    ip_arr_34[ip] = True
+          ip = prefix64 >> 42
+          if ip not in ip_arr_28 :
+	    ck28_count += 1
+	    ip_arr_28[ip] = True
+          ip = prefix64 >> 48
+          if ip not in ip_arr_22 :
+	    ck22_count += 1
+	    ip_arr_22[ip] = True
+	elif  int(prefix[1]) > 46 and int(prefix[1]) <= 52 :
+          ip = prefix64 >> 18
+          if ip not in ip_arr_52 :
+	    ck52_count += 1
+	    ip_arr_52[ip] = True
+          ip = prefix64 >> 24
+          if ip not in ip_arr_46 :
+	    ck46_count += 1
+	    ip_arr_46[ip] = True
+          ip = prefix64 >> 30
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
+          ip = prefix64 >> 36
+          if ip not in ip_arr_34 :
+	    ck34_count += 1
+	    ip_arr_34[ip] = True
+          ip = prefix64 >> 42
+          if ip not in ip_arr_28 :
+	    ck28_count += 1
+	    ip_arr_28[ip] = True
+          ip = prefix64 >> 48
+          if ip not in ip_arr_22 :
+	    ck22_count += 1
+	    ip_arr_22[ip] = True
+
+
+
+    print "ck24_count=", ck24_count
+    print "ck32_count=", ck32_count
+    print "ck40_count=", ck40_count
+    print "ck48_count=", ck48_count
+    print "ck56_count=", ck56_count
+    print "ck64_count=", ck64_count
+
+
+    poptrie = (65536 * 3 + (ck24_count + ck32_count + ck40_count + ck48_count + ck56_count + ck64_count) * 256 + (ck24_count + ck32_count + ck40_count + ck48_count + ck56_count) * 256 * 2)/(1024*1024)
+    print "Poptrie =", poptrie, "MB"
