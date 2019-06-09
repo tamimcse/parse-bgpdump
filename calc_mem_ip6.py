@@ -26,7 +26,7 @@ ck64_count = 0
 ppc = 0
 sail = 0
 
-filename = "ipv6-fibs/routes-293" 
+filename = "ipv6-fibs/routes-53828" 
 
 with open(filename) as f:
     for line in f:
@@ -394,5 +394,5 @@ with open(filename) as f:
 
 
 #Assuming number of N entries is 1.5 * num_prefixes
-    poptrie = (262144 * 5 + (ck24_count + ck30_count + ck36_count + ck42_count + ck48_count + ck54_count + ck60_count + ck64_count) * 64 * 2 + num_prefixes*1.5*8 + (ck24_count + ck30_count + ck36_count + ck42_count + ck48_count + ck54_count + ck60_count) * 16)/(1024*1024)
+    poptrie = (262144 * 5 + (ck24_count + ck30_count + ck36_count + ck42_count + ck48_count + ck54_count + ck60_count) * 8 * 2 + num_prefixes*1.5*8 + (ck24_count + ck30_count + ck36_count + ck42_count + ck48_count + ck54_count + ck60_count) * 16)/(1024*1024)
     print "Poptrie =", poptrie, "MB"
