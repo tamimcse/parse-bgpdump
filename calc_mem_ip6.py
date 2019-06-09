@@ -248,11 +248,15 @@ ck60_count = 0
 ck64_count = 0
 poptrie = 0
 
+num_prefixes = 0
+
 with open(filename) as f:
     for line in f:
 	arr = line.replace("\r\n", "").split("\t")
 	prefix = arr[0].split("/")
 	prefix64 = ip6_to_integer(prefix[0]) >> 64
+	if int(prefix[1]) > 18 and int(prefix[1]) <= 64 :
+	  num_prefixes += 1
 	if int(prefix[1]) > 18 and int(prefix[1]) <= 24 :
           ip = prefix64 >> 46
           if ip not in ip_arr_24 :
@@ -386,7 +390,9 @@ with open(filename) as f:
     print "ck64_count=", ck54_count
     print "ck56_count=", ck60_count
     print "ck64_count=", ck64_count
+    print "num_prefixes=", num_prefixes
 
-#Assuming there are 90000 prefix entries and 3000 C entries
-    poptrie = (262144 * 5 + (ck24_count + ck30_count + ck36_count + ck42_count + ck48_count + ck54_count + ck60_count + ck64_count) * 64 * 2 + 90000*8 + 3000 * 16)/(1024*1024)
+
+#Assuming number of N entries is 1.5 * num_prefixes
+    poptrie = (262144 * 5 + (ck24_count + ck30_count + ck36_count + ck42_count + ck48_count + ck54_count + ck60_count + ck64_count) * 64 * 2 + num_prefixes*1.5*8 + (ck24_count + ck30_count + ck36_count + ck42_count + ck48_count + ck54_count + ck60_count) * 16)/(1024*1024)
     print "Poptrie =", poptrie, "MB"
