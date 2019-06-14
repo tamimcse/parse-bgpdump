@@ -13,13 +13,13 @@ def ip6_to_integer(ip6):
 
 ip_arr_24 = {}
 ip_arr_32 = {}
-ip_arr_42 = {}
+ip_arr_40 = {}
 ip_arr_48 = {}
 ip_arr_56 = {}
 ip_arr_64 = {}
 ck24_count = 0
 ck32_count = 0
-ck42_count = 0
+ck40_count = 0
 ck48_count = 0
 ck56_count = 0
 ck64_count = 0
@@ -45,9 +45,9 @@ with open(filename) as f:
 
 	elif int(prefix[1]) > 32 and int(prefix[1]) <= 40 :
           ip = prefix64 >> 32
-          if ip not in ip_arr_42 :
-	    ck42_count += 1
-	    ip_arr_42[ip] = True
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
 
           ip = prefix64 >> 48
           if ip not in ip_arr_32 :
@@ -61,9 +61,9 @@ with open(filename) as f:
 	    ip_arr_48[ip] = True
 
           ip = prefix64 >> 32
-          if ip not in ip_arr_42 :
-	    ck42_count += 1
-	    ip_arr_42[ip] = True
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
 
           ip = prefix64 >> 48
           if ip not in ip_arr_32 :
@@ -82,9 +82,9 @@ with open(filename) as f:
 	    ip_arr_48[ip] = True
 
           ip = prefix64 >> 32
-          if ip not in ip_arr_42 :
-	    ck42_count += 1
-	    ip_arr_42[ip] = True
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
 
           ip = prefix64 >> 48
           if ip not in ip_arr_32 :
@@ -92,13 +92,13 @@ with open(filename) as f:
 	    ip_arr_32[ip] = True
 
     print "ck32_count=", ck32_count
-    print "ck42_count=", ck42_count
+    print "ck40_count=", ck40_count
     print "ck48_count=", ck48_count
     print "ck64_count=", ck64_count
 
 #Assume that Level 32 and 64 have 600 Ns
-    ppc = (65536 * 3 + 600 + (ck42_count + ck48_count) * 256 + ck32_count * 20 * 1024 + + ck64_count * 10 * 1024 + (ck42_count + ck48_count) * 10 * 4)/(1024*1024)
-    sail = (65536 * 3 + (ck32_count + ck64_count) * 65536 + (ck42_count + ck48_count) * 256 + ck32_count * 65536 * 4 + (ck42_count + ck48_count) * 256 * 4)/(1024*1024)
+    ppc = (65536 * 3 + 600 + (ck40_count + ck48_count) * 256 + ck32_count * 20 * 1024 + + ck64_count * 10 * 1024 + (ck40_count + ck48_count) * 10 * 4)/(1024*1024)
+    sail = (65536 * 3 + (ck32_count + ck64_count) * 65536 + (ck40_count + ck48_count) * 256 + ck32_count * 65536 * 4 + (ck40_count + ck48_count) * 256 * 4)/(1024*1024)
     print "PPC=", ppc , "MB"
     print "SAIL-16-32-40-48-64 =", sail, "MB"
 
@@ -106,13 +106,13 @@ with open(filename) as f:
 
 ip_arr_24 = {}
 ip_arr_32 = {}
-ip_arr_42 = {}
+ip_arr_40 = {}
 ip_arr_48 = {}
 ip_arr_56 = {}
 ip_arr_64 = {}
 ck24_count = 0
 ck32_count = 0
-ck42_count = 0
+ck40_count = 0
 ck48_count = 0
 ck56_count = 0
 ck64_count = 0
@@ -141,9 +141,9 @@ with open(filename) as f:
 	    ip_arr_24[ip] = True
 	elif int(prefix[1]) > 32 and int(prefix[1]) <= 40 :
           ip = prefix64 >> 32
-          if ip not in ip_arr_42 :
-	    ck42_count += 1
-	    ip_arr_42[ip] = True
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
           ip = prefix64 >> 40
           if ip not in ip_arr_32 :
 	    ck32_count += 1
@@ -158,9 +158,9 @@ with open(filename) as f:
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
           ip = prefix64 >> 32
-          if ip not in ip_arr_42 :
-	    ck42_count += 1
-	    ip_arr_42[ip] = True
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
           ip = prefix64 >> 40
           if ip not in ip_arr_32 :
 	    ck32_count += 1
@@ -179,9 +179,9 @@ with open(filename) as f:
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
           ip = prefix64 >> 32
-          if ip not in ip_arr_42 :
-	    ck42_count += 1
-	    ip_arr_42[ip] = True
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
           ip = prefix64 >> 40
           if ip not in ip_arr_32 :
 	    ck32_count += 1
@@ -204,9 +204,9 @@ with open(filename) as f:
 	    ck48_count += 1
 	    ip_arr_48[ip] = True
           ip = prefix64 >> 32
-          if ip not in ip_arr_42 :
-	    ck42_count += 1
-	    ip_arr_42[ip] = True
+          if ip not in ip_arr_40 :
+	    ck40_count += 1
+	    ip_arr_40[ip] = True
           ip = prefix64 >> 40
           if ip not in ip_arr_32 :
 	    ck32_count += 1
@@ -219,13 +219,13 @@ with open(filename) as f:
 
     print "ck24_count=", ck24_count
     print "ck32_count=", ck32_count
-    print "ck42_count=", ck42_count
+    print "ck40_count=", ck40_count
     print "ck48_count=", ck48_count
     print "ck56_count=", ck56_count
     print "ck64_count=", ck64_count
 
 
-    sail = (65536 * 3 + (ck24_count + ck32_count + ck42_count + ck48_count + ck56_count + ck64_count) * 256 + (ck24_count + ck32_count + ck42_count + ck48_count + ck56_count) * 256 * 2)/(1024*1024)
+    sail = (65536 * 3 + (ck24_count + ck32_count + ck40_count + ck48_count + ck56_count + ck64_count) * 256 + (ck24_count + ck32_count + ck40_count + ck48_count + ck56_count) * 256 * 2)/(1024*1024)
     print "SAIL-16-24-32-40-48-56-64 =", sail, "MB"
 
 ################ Splitting by 6 bit ###############################
@@ -381,16 +381,6 @@ with open(filename) as f:
           if ip not in ip_arr_64 :
 	    ck64_count += 1
 	    ip_arr_64[ip] = True
-
-    print "ck24_count=", ck24_count
-    print "ck32_count=", ck30_count
-    print "ck42_count=", ck36_count
-    print "ck48_count=", ck42_count
-    print "ck56_count=", ck48_count
-    print "ck64_count=", ck54_count
-    print "ck56_count=", ck60_count
-    print "ck64_count=", ck64_count
-    print "num_prefixes=", num_prefixes
 
 
 #Assuming number of N entries is 1.5 * num_prefixes
