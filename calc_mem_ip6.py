@@ -97,7 +97,7 @@ with open(filename) as f:
     print "ck64_count=", ck64_count
 
 #Assume that Level 32 and 64 have 600 Ns
-    ppc = (65536 * 3 + 600 + (ck40_count + ck48_count) * 256 + ck32_count * 20 * 1024 + + ck64_count * 10 * 1024 + (ck40_count + ck48_count) * 10 * 4)/(1024*1024)
+    ppc = (65536 * 3 + 600 + (ck40_count + ck48_count) * 16 + ck32_count * 20 * 1024 + + ck64_count * 10 * 1024 + (ck40_count + ck48_count) * 10 * 4)/(1024*1024)
     sail = (65536 * 3 + (ck32_count + ck64_count) * 65536 + (ck40_count + ck48_count) * 256 + ck32_count * 65536 * 4 + (ck40_count + ck48_count) * 256 * 4)/(1024*1024)
     print "PPC=", ppc , "MB"
     print "SAIL-16-32-40-48-64 =", sail, "MB"
