@@ -1,2 +1,2 @@
-sudo python ppc-split.py
+sudo python sail-split.py
 
