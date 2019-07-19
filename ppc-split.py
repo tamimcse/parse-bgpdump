@@ -30,9 +30,9 @@ n64_cnt = 0
 ppc = 0
 sail = 0
 
-filename = "ipv6-fibs/routes-53828" 
+filename = "routes-53828" 
 
-with open(filename) as f:
+with open("ipv6-fibs/" + filename) as f:
     for line in f:
         # Do something with 'line'
 	arr = line.replace("\r\n", "").split("\t")
