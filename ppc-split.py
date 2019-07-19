@@ -45,14 +45,14 @@ for filename in filenames :
 		  if ip not in ip_arr_32 :
 		    ck32_count += 1
 		    ip_arr_32[ip] = True
-		    n32_cnt += 1 << (32 - int(prefix[1]))
+		  n32_cnt += 1 << (32 - int(prefix[1]))
 
 		elif int(prefix[1]) > 32 and int(prefix[1]) <= 40 :
 		  ip = prefix64 >> 32
 		  if ip not in ip_arr_40 :
 		    ck40_count += 1
 		    ip_arr_40[ip] = True
-		    n40_cnt += 1 << (40 - int(prefix[1]))
+		  n40_cnt += 1 << (40 - int(prefix[1]))
 
 		  ip = prefix64 >> 48
 		  if ip not in ip_arr_32 :
@@ -64,7 +64,7 @@ for filename in filenames :
 		  if ip not in ip_arr_48 :
 		    ck48_count += 1
 		    ip_arr_48[ip] = True
-		    n48_cnt += 1 << (48 - int(prefix[1]))
+		  n48_cnt += 1 << (48 - int(prefix[1]))
 
 		  ip = prefix64 >> 32
 		  if ip not in ip_arr_40 :
@@ -81,7 +81,7 @@ for filename in filenames :
 		  if ip not in ip_arr_64 :
 		    ck64_count += 1
 		    ip_arr_64[ip] = True
-		    n64_cnt += 1 << (64 - int(prefix[1]))
+		  n64_cnt += 1 << (64 - int(prefix[1]))
 
 		  ip = prefix64 >> 24
 		  if ip not in ip_arr_48 :
