@@ -37,8 +37,6 @@ with open(filename) as f:
         # Do something with 'line'
 	arr = line.replace("\r\n", "").split("\t")
 	prefix = arr[0].split("/")
-#	print prefix
-#	print ip6_to_integer(prefix[0]) >> 64
 #       Extract 64-bit from the 128-bit prefix
 	prefix64 = ip6_to_integer(prefix[0]) >> 64
 	if int(prefix[1]) > 16 and int(prefix[1]) <= 32 :
@@ -108,8 +106,6 @@ with open(filename) as f:
     print "n48_cnt=", n48_cnt
     print "n64_cnt=", n64_cnt
 
-    ppc = (65536 * 3 + n32_cnt + n40_cnt + n48_cnt + n64_cnt + ck32_count * 20 * 1024 + + ck64_count * 10 * 1024 + (ck40_count + ck48_count) * 10 * 4)/(1024*1024)
-    sail = (65536 * 3 + (ck32_count + ck64_count) * 65536 + (ck40_count + ck48_count) * 256 + ck32_count * 65536 * 4 + (ck40_count + ck48_count) * 256 * 4)/(1024*1024)
+    ppc = (65536.0 * 3 + n32_cnt + n40_cnt + n48_cnt + n64_cnt + ck32_count * 20 * 1024 + + ck64_count * 10 * 1024 + (ck40_count + ck48_count) * 10 * 4)/(1024*1024)
     print "PPC=", ppc , "MB"
-    print "SAIL-16-32-40-48-64 =", sail, "MB"
 
