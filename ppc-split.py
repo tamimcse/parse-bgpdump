@@ -108,6 +108,7 @@ for filename in filenames :
 	    print "n40_cnt=", n40_cnt
 	    print "n48_cnt=", n48_cnt
 	    print "n64_cnt=", n64_cnt
+	    print "total_n=", (n32_cnt + n40_cnt + n48_cnt + n64_cnt)/(1024*1024.0), " MB"
 
 	    ppc = (65536.0 * 3 + n32_cnt + n40_cnt + n48_cnt + n64_cnt + ck32_count * 20 * 1024 + + ck64_count * 10 * 1024 + (ck40_count + ck48_count) * 10 * 4)/(1024*1024)
 	    print filename + "  PPC=", ppc , "MB"
