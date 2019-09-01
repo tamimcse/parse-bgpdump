@@ -1,5 +1,5 @@
 #!/usr/bin/python
-#This scripts inputs BGPdump output and a peer ID and extracts routing table for the peer
+#This scripts inputs BGPdump -m output and extracts routing tables of all the peers
 
 import sys
 
