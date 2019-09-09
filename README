@@ -8,8 +8,16 @@ Note that here we replace the actual next-hop with veth0-veth31. We use followin
 addroutes.sh      --- Add routes to Linux
 delroutes.sh      --- Delete routes from Linux
 
-These files are internally used by addroutes.sh and delroutes.sh:
+addroutes.sh and delroutes.sh internally use following files:
  
 create-veths.py   --- Creates 32 veths on the machine
 addroutes.py      --- 
 delroutes.py      --- 
+
+
+Moreover following scripts generates memory consumption for PPC, SAIL based on the FIBS:
+
+ppc-split.sh      ---  Generates memory consumption for PPC for all the FIBs in ipv6-fibs folder. It internally uses ppc-split.py
+sail-split.sh     ---  Generates memory consumption for SAIL for all the FIBs in ipv6-fibs folder. It internally uses sail-split.py
+poptrie-split.sh  ---  Generates memory consumption for SAIL for all the FIBs in ipv6-fibs folder. It internally uses poptrie-split.py
+
