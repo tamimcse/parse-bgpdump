@@ -2,6 +2,7 @@
 #This scripts inputs BGPdump -m output and extracts routing tables of all the peers
 
 import sys
+import random
 
 class Peer:
 
@@ -14,10 +15,6 @@ class Peer:
   def myfunc(self):
     print("Hello my name is " + self.name)
 
-#prefix_set = set()
-#nh_dict = {}
-#i = 0
-
 peer_dict = {}
 
 if len(sys.argv) != 2 :
@@ -27,10 +24,6 @@ if len(sys.argv) != 2 :
 	sys.exit()
 
 bgpdump_output_file = sys.argv[1] 
-#target_peer_id = sys.argv[2]
-#outputfile = sys.argv[3]
-
-#out = open(outputfile, "w")
 
 with open(bgpdump_output_file) as f:
     for line in f:
@@ -48,5 +41,5 @@ with open(bgpdump_output_file) as f:
 	        peer_dict[as_id].nh_dict[next_hop] = peer_dict[as_id].nh_total
                 peer_dict[as_id].nh_total = peer_dict[as_id].nh_total + 1
 		print "number of next-hops in {0} is {1}".format(as_id, peer_dict[as_id].nh_total)
-	    peer_dict[as_id].out.write("{0}\tveth{1}\n".format(prefix, peer_dict[as_id].nh_dict[next_hop]%32))
-#	    out.write("{0}\t{1}\n".format(arr[5], next_hop))
+            peer_dict[as_id].out.write("{0}\tveth{1}\n".format(prefix, random.randint(0,31)))
+	    #peer_dict[as_id].out.write("{0}\tveth{1}\n".format(prefix, peer_dict[as_id].nh_dict[next_hop]%32))
