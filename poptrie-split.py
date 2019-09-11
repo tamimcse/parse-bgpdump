@@ -40,6 +40,9 @@ for filename in filenames :
 	n52_cnt = 0
 	n58_cnt = 0
 	n64_cnt = 0
+        total_n = 0
+
+        prefix_count = 0
 
 	poptrie = 0
   
@@ -50,6 +53,8 @@ for filename in filenames :
 		prefix = arr[0].split("/")
 	#       Extract 64-bit from the 128-bit prefix
 		prefix64 = ip6_to_integer(prefix[0]) >> 64
+
+                prefix_count += 1
 
 		if int(prefix[1]) > 16 and int(prefix[1]) <= 22 :
 		  ip = prefix64 >> 48
@@ -247,16 +252,18 @@ for filename in filenames :
 		    ck22_count += 1
 		    ip_arr_22[ip] = True
 
-	    print "ck32_count=", ck32_count
+	    print "ck22_count=", ck22_count
+	    print "ck28_count=", ck28_count
+	    print "ck34_count=", ck34_count
 	    print "ck40_count=", ck40_count
-	    print "ck48_count=", ck48_count
+	    print "ck46_count=", ck46_count
+	    print "ck52_count=", ck52_count
+	    print "ck58_count=", ck58_count
 	    print "ck64_count=", ck64_count
-	    print "n32_cnt=", n32_cnt
-	    print "n40_cnt=", n40_cnt
-	    print "n48_cnt=", n48_cnt
-	    print "n64_cnt=", n64_cnt
-	    print "total_n=", (n32_cnt + n40_cnt + n48_cnt + n64_cnt)/(1024*1024.0), " MB"
+#            total_n = (n22_cnt + n28_cnt + n34_cnt + n40_cnt + n46_cnt + n52_cnt + n58_cnt + n64_cnt);
+            total_n = prefix_count * 2
+	    print "total_n=", total_n/(1024*1024.0), " MB"
 	    
 	    #10240 byte is needed for B16 and C16, 0 byte is needed for N16
-	    poptrie = (65536 * 3 + n32_cnt + n40_cnt + n48_cnt + n64_cnt + ck32_count * 20 * 1024 + + ck64_count * 10 * 1024 + (ck40_count + ck48_count) * 20 * 4)/(1024*1024.0)
-	    print filename + "  PPC=", poptrie , "MB"
+	    poptrie = (65536 * 3 + total_n + (ck22_count + ck28_count + ck34_count + ck40_count + ck46_count + ck52_count + ck58_count+ ck64_count) * 24)/(1024*1024.0)
+	    print filename + "  Poptrie=", poptrie , "MB"
