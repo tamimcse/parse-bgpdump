@@ -167,6 +167,7 @@ for filename in filenames :
 	    print "ck48_count=", ck48_count
 	    print "ck56_count=", ck56_count
 	    print "ck64_count=", ck64_count
+	    print "n24_cnt=", n24_cnt
 	    print "n32_cnt=", n32_cnt
 	    print "n40_cnt=", n40_cnt
 	    print "n48_cnt=", n48_cnt
