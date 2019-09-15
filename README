@@ -18,11 +18,10 @@ delroutes.py      ---
 Moreover following scripts generates memory consumption for different FIB lookups for all the FIBs in ipv6-fibs folder:
 
 ppc.sh                  ---  PPC where the FIBs split into level 16, 24, 32, 40, 48, 54, 64.
+ppc-split-56.sh         ---  PPC where prefixes with 48-64 is divided into level 48, 56 and 64.
 ppc-16-32-40-48-64.sh   ---  PPC where FIB is split into level 16, 32, 40, 48, 64
-
-ppc-split-56.sh         ---  Memory consumption of  PPC where prefixes with 48-64 is divided into level 48, 56 and 64. It internally uses ppc-split-56.py
-sail-split.sh           ---  Generates memory consumption for SAIL for all the FIBs in ipv6-fibs folder. It internally uses sail-split.py
-poptrie-16.sh           ---  Memory consumption of Poptrie-16. It internally uses poptrie-16.py
-poptrie-18.sh           ---  Memory consumption of Poptrie-18. It internally uses poptrie-18.py
+sail.sh           ---  Memory consumption of SAIL.
+poptrie-16.sh           ---  Memory consumption of Poptrie-16.
+poptrie-18.sh           ---  Memory consumption of Poptrie-18.
 
 
