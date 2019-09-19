@@ -141,5 +141,5 @@ for filename in filenames :
 	    print "total_n=", (n32_cnt + n40_cnt + n48_cnt + n56_cnt + n64_cnt)/(1024*1024.0), " MB"
 	    
 	    #10240 byte is needed for B16 and C16, 0 byte is needed for N16
-	    ppc = (10240 + n32_cnt + n40_cnt + n48_cnt + n56_cnt + n64_cnt + ck32_count * 20 * 1024 + ck64_count * 10 * 4 + (ck40_count + ck48_count + ck56_count) * 20 * 4)/(1024*1024.0)
+	    ppc = (10240 * 2 + n32_cnt + n40_cnt + n48_cnt + n56_cnt + n64_cnt + ck32_count * 20 * 1024 + ck64_count * 10 * 4 + (ck40_count + ck48_count + ck56_count) * 20 * 4)/(1024*1024.0)
 	    print filename + "  PPC=", ppc , "MB"
