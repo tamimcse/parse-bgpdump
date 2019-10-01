@@ -260,6 +260,16 @@ for filename in filenames :
 	    print "ck52_count=", ck52_count
 	    print "ck58_count=", ck58_count
 	    print "ck64_count=", ck64_count
+
+	    print "n22_cnt=", n22_cnt
+	    print "n28_cnt=", n28_cnt
+	    print "n34_cnt=", n34_cnt
+	    print "n40_cnt=", n40_cnt
+	    print "n46_cnt=", n46_cnt
+	    print "n52_cnt=", n52_cnt
+	    print "n58_cnt=", n58_cnt
+	    print "n64_cnt=", n64_cnt
+
             total_n = (n22_cnt + n28_cnt + n34_cnt + n40_cnt + n46_cnt + n52_cnt + n58_cnt + n64_cnt);
 #            total_n = prefix_count * 2
 	    print "Total N count", total_n
