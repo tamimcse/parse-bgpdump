@@ -260,11 +260,11 @@ for filename in filenames :
 	    print "ck52_count=", ck52_count
 	    print "ck58_count=", ck58_count
 	    print "ck64_count=", ck64_count
-#            total_n = (n22_cnt + n28_cnt + n34_cnt + n40_cnt + n46_cnt + n52_cnt + n58_cnt + n64_cnt);
-            total_n = prefix_count * 2
+            total_n = (n22_cnt + n28_cnt + n34_cnt + n40_cnt + n46_cnt + n52_cnt + n58_cnt + n64_cnt);
+#            total_n = prefix_count * 2
 	    print "Total N count", total_n
 	    print "total_n=", total_n/(1024*1024.0), " MB"
 	    
 	    #10240 byte is needed for B16 and C16, 0 byte is needed for N16
-	    poptrie = (65536 * 3 + total_n + (ck22_count + ck28_count + ck34_count + ck40_count + ck46_count + ck52_count + ck58_count+ ck64_count) * 24)/(1024*1024.0)
+	    poptrie = (65536 * 3 + total_n + (ck22_count + ck28_count + ck34_count + ck40_count + ck46_count + ck52_count + ck58_count+ ck64_count) * 20)/(1024*1024.0)
 	    print filename + "  Poptrie=", poptrie , "MB"
